@@ -10,12 +10,11 @@ export default async (req, res) => {
       .insertOne({
         link: req.body.link,
       });
-    console.log("entry insterted id", String(entry.insertedId).slice(19, 24));
+
     res.statusCode = 201;
-    let shortenedStr = String(entry.insertedId).slice(19, 24);
 
     return res.json({
-      short_link: `${process.env.VERCEL_URL}/r/${shortenedStr}`,
+      short_link: `${process.env.VERCEL_URL}/r/${entry.insertedId}`,
     });
   }
   res.statusCode = 409;
