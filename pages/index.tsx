@@ -40,7 +40,8 @@ export default function Home() {
       const error = e as AxiosError<ShortenLinkError>;
       setStatus("error");
       setMessage(
-        error.response?.data?.error_description || "Something went wrong."
+        error.response?.data?.error_description ||
+          "Unable to connect to Database."
       );
     }
   };
